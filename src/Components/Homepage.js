@@ -21,6 +21,21 @@ const divStyle = {
 
 
 export default class Homepage extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {apiResponse:""};
+    }
+
+    callAPI(){
+        fetch("http://localhost:9000/database")
+            .then(res => res.text())
+            .then(res => this.setState({apiResponse: res}));
+    }
+
+    componentWillMount(){
+        this.callAPI();
+    }
     render(){
         return(
 
@@ -30,7 +45,7 @@ export default class Homepage extends Component {
            <img className="homepage_logo" src={Logo}/>
            <SearchPage/>
 
-
+           <p>{this.state.apiResponse}</p>
           </div>
 
 
