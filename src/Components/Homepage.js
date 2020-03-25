@@ -28,7 +28,7 @@ export default class Homepage extends Component {
     }
 
     callAPI(){
-        fetch("http://localhost:9000/database")
+        fetch("http://localhost:3000/database")
             .then(res => res.text())
             .then(res => this.setState({apiResponse: res}));
     }
@@ -45,7 +45,7 @@ export default class Homepage extends Component {
            <img className="homepage_logo" src={Logo}/>
            <SearchPage/>
 
-           <p>{this.state.apiResponse}</p>
+
           </div>
 
 

@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2581939-0b2d-4a82-9b82-0963953476c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/bin/www" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/public/stylesheets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routes/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routes/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/error.jade" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/index.jade" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/views/layout.jade" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/database.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Searchbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Searchbar.js" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -59,6 +57,18 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hussein\IdeaProjects\independentproject" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -88,11 +98,28 @@
       <workItem from="1581047252055" duration="9604000" />
       <workItem from="1581119143479" duration="6585000" />
       <workItem from="1582347746569" duration="5010000" />
+      <workItem from="1582568022145" duration="6052000" />
+      <workItem from="1583295268469" duration="109000" />
+      <workItem from="1583694895702" duration="13416000" />
+      <workItem from="1585082275862" duration="1913000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
