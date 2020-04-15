@@ -1,71 +1,88 @@
 import React from "react";
 import { MDBCol, MDBInput } from "mdbreact";
 import axios from 'axios';
-
+import '../search.css';
 
 class SearchPage extends React.Component {
+
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {apiResponse:""};
+        // this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            query: '',
+            results: null,
+            loading: false,
+            message: '',
+
+        };
+
+        this.cancel = '';
 
     }
 
-    handleChange = (e) => {
-        let {text} = e.target;
-        // this.setState({text: e.target.value});
+    async fetchSearchResults(query) {
+        const searchURL = `http://69.14.232.11:4000/results?text=${query}`;
+        const response = await fetch(searchURL);
+        const data = await response.json();
+        this.setState({results: data.data, loading: false});
+        console.log(data.data)
 
-        this.setState( {
-            [text]: text
-    });
+    }
+
+    handleOnInputChange = (event) => {
+        const query = event.target.value;
+        //console.warn(query);
+        this.setState({query: query, loading: true, message: ''}, () =>
+        this.fetchSearchResults(query)
+        )
     };
-
-    callAPI(){
-        fetch("http://localhost:3000/database")
-            .then(res => res.text())
-            .then(res => this.setState({apiResponse: res}));
-    }
-
-
-    componentDidMount() {
-        axios.get(`http://localhost:3000`)
-            .then(res => {
-                const text = res.data;
-                this.setState({ text });
-            });
-        this.callAPI();
-
-    }
-
-    onSubmit(e) {
-        e.preventDefault();
-        const result = {
-            text: this.state.text
-    };
-
-        axios({
-            method: 'post',
-            url: '/routes/database',
-            data: {
-                text: result
-            }
-        });
-    }
-
-
 
     render() {
+        const {query} = this.state;
+        // console.warn(this.state);
         return (
-            <div>
-            <form onSubmit={(e) => this.onFormSubmit(e)} className="search">
-            <MDBCol className="searchbar" md="6">
-                <MDBInput name="text" hint="Search" type="text" containerClass="active-pink active-pink-2 mt-0 mb-3" onChange={this.handleChange}/>
-            </MDBCol>
-                <label><input type="submit" value="submit"></input>
-                </label>
-            </form>
-                <p>{this.state.apiResponse}</p>
-            </div>
+
+            <center><div className="container">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+                          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+                          crossOrigin="anonymous"/>
+                    {/*heading*/}
+                    <h2 className="heading">Live Search</h2>
+                    <label className="search-label" htmlFor="search-input">
+                        <input
+                            type="text"
+                            name="query"
+                            value={query}
+                            id="search-input"
+                            placeholder="Search"
+                            onChange={this.handleOnInputChange}
+                        />
+
+                    </label>
+
+                    <div id = "contain" style={{backgroundColor: "white", marginTop: "20px", width: "50%", alignContent: "center"}}>
+                    {!this.state.results
+                        ?
+                        <div>Enter your search query and the results will show up automatically</div>
+                        :
+                        <div>{this.state.results.map(res => {
+                            return(
+
+                                <ul key = {res.idcontent} style={{listStyleType: "none"}}>
+
+                                    <div id="resultsreturn" style={{backgroundColor: "white"}}>
+
+                                    <li><h3>{res.contentname}</h3></li>
+                                    {res.contentbody}
+                                    </div>
+                                </ul>
+
+                            )
+                        })}
+                        </div>
+                    }
+
+                    </div></div></center>
         );
     }
 }

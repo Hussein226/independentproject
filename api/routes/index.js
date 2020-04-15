@@ -6,13 +6,18 @@ const app = express();
 
 app.use(cors());
 
-const selectAll = 'SELECT * FROM content';
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: 'mydb'
+  host: "mysql.amabdelh.com",
+  user: "abdela1997",
+  password: "@BCDefg123",
+  database: 'randomfiles'
 });
 
 con.connect(err => {
@@ -20,12 +25,28 @@ con.connect(err => {
   console.log("Connected!");
 });
 
+// console.log(con);
+
 app.get('/', (req,res) => {
   res.send("Hello from index server")
 });
 
-app.get('/results', (req,res) => {
-
+app.get('/results', (req, res) => {
+  const {text} = req.query;
+  var search = {contentname: text, contentbody: text};
+  con.query(
+      'SELECT idcontent,contentname,contentbody FROM content WHERE contentname LIKE ? OR contentbody LIKE ?',
+      [search.contentname, search.contentbody],
+      (err, result) => {
+        if (err) {
+          return res.send(err);
+        } else {
+          return res.json({
+            data: result
+          });
+        }
+      }
+  );
 });
 
 app.listen(4000, () => {
@@ -33,8 +54,8 @@ app.listen(4000, () => {
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
 
 module.exports = router;

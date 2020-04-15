@@ -5,6 +5,7 @@ import Navigationbar from "./Navigationbar";
 import SearchPage from "./Searchbar";
 import Logo from "../Art/Goggle.png";
 import Aboutus from "./Aboutus";
+import FetchData from "./FetchData";
 
 
 const Background = require('../Art/Background.png');
@@ -27,23 +28,24 @@ export default class Homepage extends Component {
         this.state = {apiResponse:""};
     }
 
-    callAPI(){
-        fetch("http://localhost:3000/database")
-            .then(res => res.text())
-            .then(res => this.setState({apiResponse: res}));
-    }
+    // callAPI(){
+    //     fetch("http://localhost:4000/results")
+    //         .then(res => res.text())
+    //         .then(res => this.setState({apiResponse: res.data}));
+    // }
 
-    componentWillMount(){
-        this.callAPI();
-    }
+    // componentWillMount(){
+    //     this.callAPI();
+    // }
     render(){
         return(
 
           <div style={divStyle}>
 
             <Navigationbar/>
-           <img className="homepage_logo" src={Logo}/>
+           {/*<img className="homepage_logo" src={Logo}/>*/}
            <SearchPage/>
+           {/*<FetchData/>*/}
 
 
           </div>
