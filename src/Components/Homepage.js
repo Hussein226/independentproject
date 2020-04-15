@@ -13,7 +13,7 @@ const Background = require('../Art/Background.png');
 
 const divStyle = {
     width: '100%',
-    height: '1000px',
+    height: '10000px',
     backgroundImage: `url(${Background})`,
     backgroundSize: 'cover'
 };

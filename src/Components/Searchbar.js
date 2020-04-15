@@ -60,7 +60,7 @@ class SearchPage extends React.Component {
 
                     </label>
 
-                    <div id = "contain" style={{backgroundColor: "white", marginTop: "20px", width: "50%", alignContent: "center"}}>
+                    <div id = "contain" style={{backgroundColor: "white", marginTop: "20px", width: "50%", alignContent: "center", overflow: "hidden", paddingRight: "10px"}}>
                     {!this.state.results
                         ?
                         <div>Enter your search query and the results will show up automatically</div>
@@ -72,7 +72,7 @@ class SearchPage extends React.Component {
 
                                     <div id="resultsreturn" style={{backgroundColor: "white"}}>
 
-                                    <li><h3>{res.contentname}</h3></li>
+                                        <li><h3><a href={res.contenthref}> {res.contentname}</a></h3></li>
                                     {res.contentbody}
                                     </div>
                                 </ul>

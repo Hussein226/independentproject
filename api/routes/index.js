@@ -33,10 +33,10 @@ app.get('/', (req,res) => {
 
 app.get('/results', (req, res) => {
   const {text} = req.query;
-  var search = {contentname: text, contentbody: text};
+  var search = {contentname: text, contentbody: text, contentsubject: text};
   con.query(
-      'SELECT idcontent,contentname,contentbody FROM content WHERE contentname LIKE ? OR contentbody LIKE ?',
-      [search.contentname, search.contentbody],
+      'SELECT idcontent,contentname,contentbody,contenthref FROM content WHERE contentname LIKE ? OR contentbody LIKE ? OR contentsubject LIKE ?',
+      ["%" +search.contentname + "%", "%" + search.contentbody + "%", "%" + search.contentsubject + "%"],
       (err, result) => {
         if (err) {
           return res.send(err);
